@@ -93,4 +93,26 @@ body {
     font-size: 15px;
     color: var(--main-color);
     font-weight: 300;
+    padding: 10px  0;
+}
+
+.localScores {
+    color: white;
+}
+
+.saved-scores {
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+#score-list {
+    margin-top: 50px;
+    list-style-type: none;
+}
+
+#score-list li{
+    border: 5px solid white;
+    padding: 30px;
+    color: aqua;
 }

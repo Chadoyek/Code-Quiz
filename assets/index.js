@@ -125,13 +125,31 @@ function selectAnswer(event){
 
 }
 
+
 function showScore(){
     resetState();
     resetTimer();
     questionElem.innerHTML = "You scored " + score + " out of " + questions.length + "!";
     nextButton.innerHTML = "Play Again";
     nextButton.style.display= "block";
+
+    saveScoreToLocalStorage(score);
 }
+
+function saveScoreToLocalStorage(score) {
+
+    var scores = JSON.parse(localStorage.getItem("quizScores")) || [];
+    
+    scores.push(score);
+    
+    localStorage.setItem("quizScores", JSON.stringify(scores));
+}
+
+function getScoresFromLocalStorage() {
+    return JSON.parse(localStorage.getItem("quizScores")) || [];
+}
+
+
 
 function handleNextButton(){
     currentQuestionIndex++;
