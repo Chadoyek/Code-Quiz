@@ -30,7 +30,10 @@ var questions = [
 
 var questionElem = document.getElementById("question");
 var answerButtons = document.getElementById("answer-buttons");
-var nextButton = document.getElementById("next-btn"); 
+var nextButton = document.getElementById("next-btn");
+var timerElement = document.getElementById("timer");
+var timerInterval;
+var timer = 30;
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -40,6 +43,8 @@ function startQuiz(){
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
+    resetTimer();
+    startTimer();
 }
 
 function showQuestion(){
@@ -61,6 +66,37 @@ function showQuestion(){
     });
 }
 
+function startTimer() {
+    timerInterval = setInterval(function() {
+
+        if(currentQuestionIndex < questions.length){
+        timerElement.innerText = "Time left: " + timer + "s";
+        
+        }else{
+            timerElement.style.display = "none";
+        }
+
+        if (timer <= 0) {
+            clearInterval(timerInterval);
+            handleNextButton();
+        
+        }
+
+        timer--;
+    }, 1000);
+}
+
+function deductTime() {
+    timer -= 10;
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timer = 30; 
+}
+
+
+
 function resetState(){
     nextButton.style.display = "none";
     while(answerButtons.firstChild){
@@ -76,6 +112,7 @@ function selectAnswer(event){
         score++;
     }else {
         selectedBtn.classList.add("incorrect");
+        deductTime();
     }
     Array.from(answerButtons.children).forEach(button =>{
         if(button.dataset.correct === "true"){
@@ -90,6 +127,7 @@ function selectAnswer(event){
 
 function showScore(){
     resetState();
+    resetTimer();
     questionElem.innerHTML = "You scored " + score + " out of " + questions.length + "!";
     nextButton.innerHTML = "Play Again";
     nextButton.style.display= "block";
@@ -113,7 +151,14 @@ nextButton.addEventListener("click", () =>{
     }
 
 })
+
+function playAgain(){
+    startQuiz()
+}
+
+
 startQuiz();
+startTimer();
 
 
     

@@ -87,3 +87,10 @@ body {
 .incorrect {
     background: #ff9393;
 }
+
+#timer{
+    margin-left: 450px;
+    font-size: 15px;
+    color: var(--main-color);
+    font-weight: 300;
+}
