@@ -15,9 +15,9 @@
 
     <div class="app">
         <h1>Code Quiz</h1>
-         <div id="timer">Time</div>
-
-            <div class="quiz">
+        <div id="timer">Time</div>
+    
+        <div class="quiz">
             <h2 id="question">Question goes here</h2>
             
             <div id="answer-buttons">
@@ -27,14 +27,23 @@
                 <button class="btn">Answer 4</button>
             </div>
             <button id="next-btn">Next</button>
-
-
         </div>
-
-
-
-
+    
+        <div id="initials-form" style="display: none;">
+            <form>
+                <div class="form-group">
+                    <label for="initials">Enter Your Initials:</label>
+                    <input type="text" class="form-control" id="initials" placeholder="Enter initials" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./assets/index.js"></script>
 </body>
 </html>

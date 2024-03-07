@@ -133,7 +133,8 @@ function showScore(){
     nextButton.innerHTML = "Play Again";
     nextButton.style.display= "block";
 
-    saveScoreToLocalStorage(score);
+    document.getElementById("initials-form").style.display = "block";
+    // saveScoreToLocalStorage(score);
 }
 
 function saveScoreToLocalStorage(score) {
