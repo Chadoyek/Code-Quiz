@@ -11,10 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         scores.forEach(function(score, index) {
             var listItem = document.createElement("li");
-            listItem.textContent = "Score " + (index + 1) + ": " + score;
+            listItem.textContent = "Score " + (index + 1) + ": " + score.initials + " - " + score.score;
             scoreList.appendChild(listItem);
         });
     }
 
     displayScores();
 });
+

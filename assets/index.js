@@ -134,7 +134,7 @@ function showScore(){
     nextButton.style.display= "block";
 
     document.getElementById("initials-form").style.display = "block";
-    // saveScoreToLocalStorage(score);
+    saveScoreToLocalStorage(score);
 }
 
 function saveScoreToLocalStorage(score) {
