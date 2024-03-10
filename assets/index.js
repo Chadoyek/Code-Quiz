@@ -139,9 +139,7 @@ function showScore(){
     questionElem.innerHTML = "You scored " + score + " out of " + questions.length + "!";
     nextButton.innerHTML = "Play Again";
     nextButton.style.display= "block";
-    // console.log(score)
     document.getElementById("initials-form").style.display = "block";
-    // saveScoreToLocalStorage(score);
 }
 
 function saveScoreToLocalStorage(event) {
@@ -150,7 +148,6 @@ function saveScoreToLocalStorage(event) {
     var initials = initialsEl.value.trim()
     
     var scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    // console.log(scores)
     var newScore = {
         score: score,
         initials : initials,
@@ -191,7 +188,6 @@ nextButton.addEventListener("click", () =>{
 function playAgain(){
 
     window.location.reload;
-    // startQuiz()
 }
 
 

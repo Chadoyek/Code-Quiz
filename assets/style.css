@@ -124,3 +124,8 @@ body {
     cursor: pointer;
 
 }
+
+#initials {
+    width: 100%;
+    padding: 5px;
+}
