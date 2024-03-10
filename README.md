@@ -7,7 +7,7 @@ This is a JavaScript code quiz application that tests your knowledge of coding c
 ![Image of the Code](./assets/images/Code-Quiz-Image.png)
 
 ## Functionality
-- **Starting The Quiz **: When you open the page, a timer starts counting down, and you are presented with the first question.
+- **Starting The Quiz**: When you open the page, a timer starts counting down, and you are presented with the first question.
 - **Answering Questions**: Once you answer a question, you are presented with the next question.
 - **Incorrect Answers**: If you answer a question incorrectly, time is subtracted from the timer.
 - **Game Over**: The game ends either when all questions are answered or when the timer reaches 0.
