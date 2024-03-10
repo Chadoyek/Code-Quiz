@@ -32,6 +32,7 @@ var questionElem = document.getElementById("question");
 var answerButtons = document.getElementById("answer-buttons");
 var nextButton = document.getElementById("next-btn");
 var timerElement = document.getElementById("timer");
+var initialsEl = document.getElementById("initials");
 var timerInterval;
 var timer = 30;
 
@@ -39,6 +40,8 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 function startQuiz(){
+    document.getElementById("initials-form").style.display = "none";
+    timerElement.style.display = "block";
     currentQuestionIndex= 0;
     score = 0;
     nextButton.innerHTML = "Next";
@@ -72,13 +75,17 @@ function startTimer() {
         if(currentQuestionIndex < questions.length){
         timerElement.innerText = "Time left: " + timer + "s";
         
-        }else{
-            timerElement.style.display = "none";
         }
+        // else{
+        //     timerElement.style.display = "none";
+        // }
 
         if (timer <= 0) {
+            timerElement.style.display = "none";
+            timer = 0;
             clearInterval(timerInterval);
             handleNextButton();
+
         
         }
 
@@ -132,23 +139,33 @@ function showScore(){
     questionElem.innerHTML = "You scored " + score + " out of " + questions.length + "!";
     nextButton.innerHTML = "Play Again";
     nextButton.style.display= "block";
-
+    // console.log(score)
     document.getElementById("initials-form").style.display = "block";
-    saveScoreToLocalStorage(score);
+    // saveScoreToLocalStorage(score);
 }
 
-function saveScoreToLocalStorage(score) {
-
+function saveScoreToLocalStorage(event) {
+    event.preventDefault();
+    console.log(score)
+    var initials = initialsEl.value.trim()
+    
     var scores = JSON.parse(localStorage.getItem("quizScores")) || [];
-    
-    scores.push(score);
-    
+    // console.log(scores)
+    var newScore = {
+        score: score,
+        initials : initials,
+    }
+    scores.push(newScore);
+    console.log(scores)
     localStorage.setItem("quizScores", JSON.stringify(scores));
+    window.location.href="scores.html";
 }
 
 function getScoresFromLocalStorage() {
     return JSON.parse(localStorage.getItem("quizScores")) || [];
 }
+var submitBtn = document.querySelector(".btn-primary");
+submitBtn.addEventListener("click", saveScoreToLocalStorage)
 
 
 
@@ -172,12 +189,14 @@ nextButton.addEventListener("click", () =>{
 })
 
 function playAgain(){
-    startQuiz()
+
+    window.location.reload;
+    // startQuiz()
 }
 
 
 startQuiz();
-startTimer();
+
 
 
     

@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
             scoreList.appendChild(listItem);
         });
     }
-
     displayScores();
 });
 
